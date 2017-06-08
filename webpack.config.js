@@ -18,9 +18,11 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
+    modulesDirectories: [
+      'node_modules',
+      './app/components'
+    ],
     alias: {
-      Main: 'app/components/Main.jsx',
-      Navigation: 'app/components/Navigation.jsx',
       applicationStyles: 'app/styles/app.scss'
     },
     extentions: ['', '.js', '.jsx']

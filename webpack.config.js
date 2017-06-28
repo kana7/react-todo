@@ -18,17 +18,14 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
-    modulesDirectories: [
-      'node_modules',
-      '¨./app/components'
-    ],
     alias: {
       applicationStyles: 'app/styles/app.scss',
       TodoApp: 'app/components/TodoApp.jsx',
       TodoSearch: 'app/components/TodoSearch.jsx',
       TodoList: 'app/components/TodoList.jsx',
       AddTodo: 'app/components/AddTodo.jsx',
-      Todo: 'app/components/Todo.jsx'
+      Todo: 'app/components/Todo.jsx',
+      TodoAPI : 'app/api/TodoAPI.jsx'
     },
     extentions: ['', '.js', '.jsx']
   },

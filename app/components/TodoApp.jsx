@@ -12,19 +12,23 @@ var TodoApp = React.createClass({
       todos: [
         {
           id: uuid(),
-          text: 'Promener le chien'
+          text: 'Promener le chien',
+          completed: false
         },
         {
           id: uuid(),
-          text: 'Tondre la pelouse'
+          text: 'Tondre la pelouse',
+          completed: true
         },
         {
           id: uuid(),
-          text: 'Acheter une voiture'
+          text: 'Acheter une voiture',
+          completed: true
         },
         {
           id: uuid(),
-          text: 'Faire des spagettis'
+          text: 'Faire des spagettis',
+          completed: false
         }
       ]
     }
@@ -35,10 +39,20 @@ var TodoApp = React.createClass({
           ...this.state.todos,
           {
             id: uuid(),
-            text: text
+            text: text,
+            completed: false
           }
         ]
       });
+  },
+  handleToggle: function(id){
+    var updatedTodos = this.state.todos.map((todo)=>{
+      if(todo.id === id){
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    this.setState({todos: updatedTodos});
   },
   handleSearch: function(showCompleted, searchText){
      this.setState({
@@ -52,7 +66,7 @@ var TodoApp = React.createClass({
       <div className="row">
         <div className="column small-centered medium-6 large-4">
           <TodoSearch onSearch={this.handleSearch}/>
-          <TodoList todos={todos}/>
+          <TodoList todos={todos} onToggle={this.handleToggle}/>
           <AddTodo onAddTodo={this.handleAddTodo}/>
         </div>
       </div>

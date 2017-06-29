@@ -28,7 +28,20 @@ describe('TodoAPI', ()=>{
   });
 
   describe('getTodos', ()=>{
-
+    it('Should return empty array for bad bad localStorage data', ()=>{
+      var actualTodos = TodoAPI.getTodos();
+      expect(actualTodos).toEqual([]);
+    });
+    it('Should return todo if valid array in localStorage', ()=>{
+      var todos = [{
+        id: 23,
+        text: 'test all files',
+        completed: false
+      }];
+      localStorage.setItem('todos', JSON.stringify(todos));
+      var actualTodos = TodoAPI.getTodos();
+      expect(actualTodos).toEqual(todos);
+    });
   });
 
 });

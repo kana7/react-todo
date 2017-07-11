@@ -26,7 +26,8 @@ module.exports = {
     });
     //Filter by searchText
     filteredTodos = filteredTodos.filter((todo)=>{
-      return (searchText)?todo.text.indexOf(searchText.toLowerCase())!=-1 : true;
+      var text = todo.text.toLowerCase();
+      return (searchText.length>0)?text.indexOf(searchText.toLowerCase())>-1 : true;
     });
     //Sort todos with non-completed first
     filteredTodos.sort((a, b)=>{

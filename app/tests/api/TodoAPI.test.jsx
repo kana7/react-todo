@@ -1,5 +1,4 @@
 var expect = require('expect');
-
 var TodoAPI = require('TodoAPI');
 
 describe('TodoAPI', ()=>{
@@ -70,6 +69,15 @@ describe('TodoAPI', ()=>{
     it('Should sort by completed status', ()=>{
       var filteredTodos = TodoAPI.filterTodos(todos, true, '');
       expect(filteredTodos[0].completed).toBe(false);
+    });
+    it('Should filter todos by searchText', ()=>{
+      var text = 'Some';
+      var filteredTodos = TodoAPI.filterTodos(todos, true, text);
+      expect(filteredTodos.length).toBe(2);
+    });
+    it('Should return all todos if searchText is empty', ()=>{
+      var filteredTodos=TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(3);
     });
   });
 });

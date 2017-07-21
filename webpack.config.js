@@ -25,7 +25,8 @@ module.exports = {
       TodoList: 'app/components/TodoList.jsx',
       AddTodo: 'app/components/AddTodo.jsx',
       Todo: 'app/components/Todo.jsx',
-      TodoAPI : 'app/api/TodoAPI.jsx'
+      TodoAPI : 'app/api/TodoAPI.jsx',
+      actions: 'app/actions/actions.jsx'
     },
     extentions: ['', '.js', '.jsx']
   },
